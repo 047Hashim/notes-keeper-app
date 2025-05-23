@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') -%>
+<div class="container mt-4">
+  <h3 class="mb-3">📝 Add a New Note</h3>
+  <form action="/notes" method="POST" novalidate class="needs-validation">
+    <div class="mb-3">
+      <label for="title" class="form-label">Note Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="note[title]"
+        placeholder="Enter note title"
+        required
+      />
+      <div class="invalid-feedback">Title is required.</div>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Note Content</label>
+      <textarea
+        class="form-control"
+        id="content"
+        name="note[content]"
+        rows="4"
+        placeholder="Write your note here..."
+        required
+      ></textarea>
+      <div class="invalid-feedback">Please enter content for the note.</div>
+    </div>
+    <button type="submit" class="btn btn-primary primary-btn">Add Note</button>
+  </form>
+</div>

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <% if(!currUser){ %>
+    <a class="navbar-brand" href="/">&#128221; Notes Keeper</a>
+    <% } else { %>
+    <a class="navbar-brand" href="/notes">&#128221; Notes Keeper</a>
+    <% } %>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Left side nav links -->
+      <div class="navbar-nav">
+        <% if(!currUser){ %>
+        <a class="nav-link <%= (url === '/') ? 'active' : '' %>" href="/"
+          >Home</a
+        >
+        <a
+          class="nav-link <%= (url === '/notes/new') ? 'active' : '' %>"
+          href="/notes/new"
+          >Add Note</a
+        >
+        <a
+          class="nav-link <%= (url === '/notes') ? 'active' : '' %>"
+          href="/notes"
+          >All Notes</a
+        >
+
+        <% } else { %>
+        <a
+          class="nav-link <%= (url === '/notes') ? 'active' : '' %>"
+          href="/notes"
+          >Home</a
+        >
+        <% } %>
+      </div>
+
+      <!-- Right side nav links -->
+      <div class="navbar-nav ms-auto">
+        <% if(!currUser){ %>
+        <a
+          class="nav-link <%= (url.split('?')[0] === '/login') ? 'active' : '' %>"
+          href="/login?source=navbar"
+          >Login</a
+        >
+        <a
+          class="nav-link <%= (url.split('?')[0] === '/signup') ? 'active' : '' %>"
+          href="/signup?source=navbar"
+          >Signup</a
+        >
+        <% } else {%>
+        <a
+          class="btn btn-outline-primary me-2 logout-btn"
+          role="button"
+          href="/logout"
+          >Logout</a
+        >
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate') -%>
+<div class="container mt-4">
+  <h2 class="mb-4">&#128218; Your Notes</h2>
+
+  <% if(currUser){ %>
+  <a href="/notes/new" class="btn btn-success mb-4 primary-btn">
+    &#10133; Add New Note
+  </a>
+
+  <% } %>
+  <div class="row">
+    <% if (currUser) { %> <% let hasNotes = false; %> <% for (let note of
+    allNotes) { %> <% if (String(note.owner) === String(currUser._id)) { %> <%
+    hasNotes = true; %>
+    <div class="col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title"><%= note.title %></h5>
+          <p class="card-text"><%= note.content %></p>
+          <a
+            href="/notes/<%= note._id %>/edit"
+            class="btn btn-sm btn-outline-primary"
+            aria-label="Edit Note"
+          >
+            &#9998; Edit
+          </a>
+
+          <form
+            action="/notes/<%= note._id %>?_method=DELETE"
+            method="POST"
+            style="display: inline"
+          >
+            <button
+              class="btn btn-sm btn-outline-danger"
+              aria-label="Delete Note"
+            >
+              &#128465; Delete
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% } %> <% } %> <% if (!hasNotes) { %>
+    <p class="text-muted">You have no notes yet. Create one now!</p>
+    <% } %> <% } else { %>
+    <p class="text-danger link-color">
+      You need to
+      <a href="/login" class="text-primary">log in</a>
+      to see your notes.
+    </p>
+
+    <% } %>
+  </div>
+</div>
