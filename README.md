@@ -17,7 +17,7 @@ A full-stack web application that allows users to register, log in, and securely
 *User dashboard after login.*
 
 ### New Note Form  
-![Create Note Form](./screenshots/4create_note_form.png)  
+![Create Note Form](./screenshots/3create_note_form.png)  
 *A structured form allowing users to create and save a new note.*
 
 
