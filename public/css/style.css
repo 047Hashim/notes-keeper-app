@@ -10,6 +10,14 @@ body {
   flex: 1 !important;
 }
 
+.card-body {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.card .mt-auto {
+  margin-top: auto !important;
+}
+
 /* Primary button */
 .primary-btn {
   background-color: #5cb85c !important;
